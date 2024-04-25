@@ -29,7 +29,7 @@ public class Professor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private int idS;
+	private int idP;
 	
 	@Column(name = "Name")
 	@NotNull
@@ -44,10 +44,14 @@ public class Professor {
 	@Pattern(regexp = "[A-Z]{1}[a-z]+")
 	private String surname;
 	
-	@Column(name = "Title")
+	@Column(name = "Degree")
 	@NotNull
-	@Size(min = 2, max = 20)
-	@Pattern(regexp = "[A-Z]{1}[a-z]+")
-	private String title;
+	private Degree degree;
+	
+	public Professor(String name, String surname, Degree degree) {
+		setName(name);
+		setSurname(surname);
+		setDegree(degree);
+	}
 
 }
