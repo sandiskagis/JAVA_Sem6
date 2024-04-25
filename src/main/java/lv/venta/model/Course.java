@@ -37,7 +37,7 @@ public class Course {
 	
 	@NotNull
 	@Size(min = 4, max = 50)
-	@Pattern(regexp = "[A-Za-z]+") //TODO nokopēt no cita seminaŗa ar mīkstinajumiem un garumzīmem
+	@Pattern(regexp = "[A-Za-z ]+") //TODO nokopēt no cita seminaŗa ar mīkstinajumiem un garumzīmem
 	@Column(name="Title")
 	private String title;
 	
