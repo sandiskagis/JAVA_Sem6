@@ -29,4 +29,33 @@ public class CourseFilterController {
 		
 	}
 	
+	
+	@GetMapping("/professor/{id}") //localhost:8080/course/filter/professor/2
+	public String getCourseFilterByProfessorId(@PathVariable("id") int id, Model model) {
+		try {
+			model.addAttribute("msg", "Course filtered by Professor ID");
+			model.addAttribute("mydata", courseService.selectCoursesByProfessorId(id));
+			return "course-all-show-page";
+		} catch (Exception e) {
+			model.addAttribute("errormsg", e.getMessage());
+			return "error-page";
+		}
+	}
+	
+	
+	@GetMapping("/student/{id}") //localhost:8080/course/filter/student/2
+	public String getCourseFilterByPStudentId(@PathVariable("id") int id, Model model) {
+		try {
+			model.addAttribute("msg", "Course filtered by Student ID");
+			model.addAttribute("mydata", courseService.selectCoursesByStudentId(id));
+			return "course-all-show-page";
+		} catch (Exception e) {
+			model.addAttribute("errormsg", e.getMessage());
+			return "error-page";
+		}
+	}
+	
+	
+	
+	
 }
