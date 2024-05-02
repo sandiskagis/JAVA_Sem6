@@ -33,7 +33,7 @@ public class Grade {
 	@Min(0)
 	@Max(10)
 	@Column(name="Grvalue")
-	private int grValue;
+	private int grvalue;
 	
 	
 	
@@ -51,7 +51,7 @@ public class Grade {
 	{
 		setStudent(student);
 		setCourse(course);
-		setGrValue(grvalue);
+		setGrvalue(grvalue);
 		
 	}
 	
