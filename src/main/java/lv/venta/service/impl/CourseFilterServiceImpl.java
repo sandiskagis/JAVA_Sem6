@@ -12,7 +12,7 @@ import lv.venta.repo.IStudentRepo;
 import lv.venta.service.ICourseFilterService;
 
 @Service
-public class CourseFilterServiceImpl implements ICourseFilterService{
+public class CourseFilterServiceImpl implements ICourseFilterService {
 
 	@Autowired
 	private ICourseRepo courseRepo;
@@ -21,55 +21,49 @@ public class CourseFilterServiceImpl implements ICourseFilterService{
 	private IProfessorRepo profRepo;
 	
 	@Autowired
-	private IStudentRepo studentRepo;
+	private IStudentRepo studRepo;
 	
 	@Override
 	public ArrayList<Course> selectCoursesByCP(int cp) throws Exception {
-		if(cp < 0 || cp >20) throw new Exception("The limit of CP is wrong");
+		if(cp < 0 || cp > 20) throw new Exception("Cp should be between 0 and 20");
+		
 		
 		ArrayList<Course> result = courseRepo.findByCp(cp);
 		
 		if(result.isEmpty())
-			throw new Exception("There is no course with " + cp + "creditpoints");
+			throw new Exception("There is no course with " + cp + " creditpoints");
 		
 		return result;
 	}
-	
-	
-	
 
 	@Override
 	public ArrayList<Course> selectCoursesByProfessorId(int id) throws Exception {
 		if(id <= 0) throw new Exception("Id should be positive");
 		
 		if(!profRepo.existsById(id))
-			throw new Exception("Professor with ID: " + id + " doesent exist");
+			throw new Exception("Professor with id (" + id + ") doesn't exist");
 		
-		ArrayList<Course> result = courseRepo.findByProfessorIdPe(id);
+		ArrayList<Course> result = courseRepo.findByProfessorIdpe(id);
 		
 		if(result.isEmpty())
-			throw new Exception("There is no linkage between this professor and course");
-		
+			throw new Exception("There is no linkage between this professor and course");		
+
 		return result;
 	}
 
-	
 	@Override
 	public ArrayList<Course> selectCoursesByStudentId(int id) throws Exception {
 		if(id <= 0) throw new Exception("Id should be positive");
 		
+		if(!studRepo.existsById(id)) throw new Exception("Student with id (" + id + ") doesn't exist");
 		
-		if(!studentRepo.existsById(id))
-			throw new Exception("Student with ID: " + id + " doesent exist");
 		
-		ArrayList<Course> result = courseRepo.findByGradesStudentIdPe(id);
-		
-		if(result.isEmpty())
-			throw new Exception("There is no linkage between this student and course");
+		ArrayList<Course> result = courseRepo.findByGradesStudentIdpe(id);
+
+		if(result.isEmpty()) throw new Exception("There is no linkage between this student and course");		
+
 		
 		return result;
 	}
-	
-	
 
 }

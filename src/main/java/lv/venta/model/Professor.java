@@ -1,5 +1,6 @@
 package lv.venta.model;
 
+import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,13 +17,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+//TODO
+//izveidot personas kalsi ar vārdu un uzvardu
+//papaildinat ar vajadzīgam anotācijam
+//stuednts klasi mantot no sis personas kalses
+//propfesora klasi mantot no šis klases
+//apskjatīties apmacibu par mantosanu ar Spring
+
 @Table(name = "ProfessorTable")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class Professor extends Person{
+public class Professor extends Person {
 	
 	@Column(name = "Degree")
 	@NotNull
@@ -32,6 +40,8 @@ public class Professor extends Person{
 	@OneToOne(mappedBy = "professor")
 	@ToString.Exclude
 	private Course course;
+	
+
 	
 	public Professor(String name, String surname, Degree degree) {
 		super(name, surname);

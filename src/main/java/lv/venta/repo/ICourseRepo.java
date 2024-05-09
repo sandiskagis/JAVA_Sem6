@@ -8,13 +8,10 @@ import lv.venta.model.Course;
 
 public interface ICourseRepo extends CrudRepository<Course, Integer>{
 
-	//public abstract pec noklusejuma
+	//public abstract pēc nosklusejuma
 	ArrayList<Course> findByCp(int cp);
-
-	//public abstract pec noklusejuma
-	ArrayList<Course> findByProfessorIdPe(int id);
-
-	//public abstract pec noklusejuma
-	ArrayList<Course> findByGradesStudentIdPe(int id);
-
+	//public abstract pēc nosklusejuma
+	ArrayList<Course> findByProfessorIdpe(int id);
+	//public abstract pēc nosklusejuma
+	ArrayList<Course> findByGradesStudentIdpe(int id);
 }

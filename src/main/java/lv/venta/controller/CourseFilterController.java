@@ -12,50 +12,50 @@ import lv.venta.service.ICourseFilterService;
 @Controller
 @RequestMapping("/course/filter")
 public class CourseFilterController {
-	
+
 	@Autowired
 	private ICourseFilterService courseService;
-
+	
 	@GetMapping("/cp/{param}") //localhost:8080/course/filter/cp/4
-	public String getCourseFilterByCp(@PathVariable("param") int cp, Model model) {
-		
+	public String getCourseFilterByCp(@PathVariable("param") int cp, 
+			Model model) {
 		try {
 			model.addAttribute("mydata", courseService.selectCoursesByCP(cp));
-			return "course-all-show-page";
+			model.addAttribute("msg", "Courses filtered by creditpoints");
+			return "course-all-show-page";//parādām course-all-show-page.html lapu
 		} catch (Exception e) {
 			model.addAttribute("errormsg", e.getMessage());
-			return "error-page";
+			return "error-page";//tiks parādīta error-page.html lapa
 		}
-		
+
 	}
-	
 	
 	@GetMapping("/professor/{id}") //localhost:8080/course/filter/professor/2
-	public String getCourseFilterByProfessorId(@PathVariable("id") int id, Model model) {
+	public String getCourseFilterByProfessorID(@PathVariable("id") int id, 
+			Model model) {
 		try {
-			model.addAttribute("msg", "Course filtered by Professor ID");
 			model.addAttribute("mydata", courseService.selectCoursesByProfessorId(id));
-			return "course-all-show-page";
+			model.addAttribute("msg", "Courses filtered by Professor id");
+			return "course-all-show-page";//parādām course-all-show-page.html lapu
 		} catch (Exception e) {
 			model.addAttribute("errormsg", e.getMessage());
-			return "error-page";
+			return "error-page";//tiks parādīta error-page.html lapa
 		}
+
 	}
-	
 	
 	@GetMapping("/student/{id}") //localhost:8080/course/filter/student/2
-	public String getCourseFilterByPStudentId(@PathVariable("id") int id, Model model) {
+	public String getCourseFilterByStudentID(@PathVariable("id") int id, 
+			Model model) {
 		try {
-			model.addAttribute("msg", "Course filtered by Student ID");
 			model.addAttribute("mydata", courseService.selectCoursesByStudentId(id));
-			return "course-all-show-page";
+			model.addAttribute("msg", "Courses filtered by Student id");
+			return "course-all-show-page";//parādām course-all-show-page.html lapu
 		} catch (Exception e) {
 			model.addAttribute("errormsg", e.getMessage());
-			return "error-page";
+			return "error-page";//tiks parādīta error-page.html lapa
 		}
+
 	}
-	
-	
-	
 	
 }

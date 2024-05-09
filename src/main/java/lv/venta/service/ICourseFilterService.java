@@ -14,5 +14,9 @@ public interface ICourseFilterService {
 	
 	public abstract ArrayList<Course> selectCoursesByStudentId(int id)
 		throws Exception;
+	
+
+	
+
 
 }

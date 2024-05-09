@@ -23,12 +23,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Grade {
-
 	@Column(name="IdG")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	int idG;
+	private int idG;
 	
 	@Min(0)
 	@Max(10)
@@ -36,15 +35,12 @@ public class Grade {
 	private int grvalue;
 	
 	
-	
-	
 	@ManyToOne
-	@JoinColumn(name="idC")
+	@JoinColumn(name="IdC")
 	private Course course;
 	
-	
 	@ManyToOne
-	@JoinColumn(name="idPe")
+	@JoinColumn(name="Idpe")
 	private Student student;
 	
 	public Grade(Student student, Course course, int grvalue)
@@ -52,15 +48,15 @@ public class Grade {
 		setStudent(student);
 		setCourse(course);
 		setGrvalue(grvalue);
-		
 	}
 	
-	
-	
-	
-	
-	
-	
+	//TODO
+	//1. uztaisīt saiti starp Grade un Student
+	//2. uztaisīt konstruktoru
+	//3. uzlikt @ToSTring.Exclude 
+	//4. izveidot katrai modeļu klasei savu repo
+	//5. izveidot CommandLineRunner funkciju, 
+	//kura pārbaudīt visu tabulu izveidi
 	
 	
 	
