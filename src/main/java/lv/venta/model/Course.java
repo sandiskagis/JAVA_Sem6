@@ -65,7 +65,7 @@ public class Course {
 		setCp(cp);
 		
 		for(Professor tempP: professors)
-			addProfessor(professor);
+			addProfessor(tempP);
 	}
 	
 	public void addProfessor(Professor professor) {
@@ -73,21 +73,9 @@ public class Course {
 			professors.add(professor);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public Course(String title, int cp, Professor professor) {
-		setTitle(title);
-		setCp(cp);
-		setProfessor(professor);
+	public void removeProfessor(Professor professor) {
+		if(professors.contains(professor))
+			professors.remove(professor);
 	}
 	
 	
