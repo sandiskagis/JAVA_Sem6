@@ -45,7 +45,7 @@ public class CourseFilterServiceImpl implements ICourseFilterService{
 		if(!profRepo.existsById(id))
 			throw new Exception("Professor with ID: " + id + " doesent exist");
 		
-		ArrayList<Course> result = courseRepo.findByProfessorIdP(id);
+		ArrayList<Course> result = courseRepo.findByProfessorIdPe(id);
 		
 		if(result.isEmpty())
 			throw new Exception("There is no linkage between this professor and course");
@@ -62,7 +62,7 @@ public class CourseFilterServiceImpl implements ICourseFilterService{
 		if(!studentRepo.existsById(id))
 			throw new Exception("Student with ID: " + id + " doesent exist");
 		
-		ArrayList<Course> result = courseRepo.findByGradesStudentIdS(id);
+		ArrayList<Course> result = courseRepo.findByGradesStudentIdPe(id);
 		
 		if(result.isEmpty())
 			throw new Exception("There is no linkage between this student and course");

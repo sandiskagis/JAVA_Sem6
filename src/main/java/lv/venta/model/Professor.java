@@ -23,11 +23,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Professor extends Person{
-	@Column(name="IdP")
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Setter(value = AccessLevel.NONE)
-	private int idP;
 	
 	@Column(name = "Degree")
 	@NotNull

@@ -48,24 +48,13 @@ public class Course {
 	
 	//gadījums, ka vienu kursu pasniedz tikai viens professors
 	@OneToOne
-	@JoinColumn(name = "IdP")
+	@JoinColumn(name = "IdPe")
 	private Professor professor;
 	
 	
 	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
 	private Collection<Grade> grades;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
