@@ -23,11 +23,43 @@ public class GradeFilterController {
 		try
 		{
 			model.addAttribute("mydata", gradeService.selectGradesByStudentId(id));
+			model.addAttribute("msg", "Grades filtered by Student ID");
 			return "grade-all-show-page";
 		}catch (Exception e) {
 			model.addAttribute("errormsg", e.getMessage());
 			return "error-page";//tiks parādīta error-page.html lapa
 		}
 	}
+	
+	@GetMapping("/student/failed/{id}")//localhost:8080/grade/filter/student/failed/2
+	public String getFailedGradeFilterStudentById(@PathVariable("id") int id, 
+			Model model) {
 
+		try
+		{
+			model.addAttribute("mydata", gradeService.selectFailedGradesByStudentId(id));
+			model.addAttribute("msg", "Failed grades filtered by Student ID");
+			return "grade-all-show-page";
+		}catch (Exception e) {
+			model.addAttribute("errormsg", e.getMessage());
+			return "error-page";//tiks parādīta error-page.html lapa
+		}
+	}
+	
+	
+	@GetMapping("/average/course/{id}")//localhost:8080/grade/filter/average/course/2
+	public String getAverageGradeFilterCourseById(@PathVariable("id") int id, 
+			Model model) {
+
+		try
+		{
+			model.addAttribute("mydata", gradeService.calculateAVGGradeInCourseById(id));
+			model.addAttribute("msg", "Average grade filtered by Course ID");
+			return "grade-all-show-page";
+		}catch (Exception e) {
+			model.addAttribute("errormsg", e.getMessage());
+			return "error-page";//tiks parādīta error-page.html lapa
+		}
+	}
+		
 }
