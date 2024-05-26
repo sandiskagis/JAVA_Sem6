@@ -47,7 +47,7 @@ public class GradeFilterController {
 	}
 	
 	
-	@GetMapping("/average/course/{id}")//localhost:8080/grade/filter/average/course/2
+	@GetMapping("/course/average/{id}")//localhost:8080/grade/filter/course/average/2
 	public String getAverageGradeFilterCourseById(@PathVariable("id") int id, 
 			Model model) {
 

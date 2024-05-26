@@ -45,13 +45,26 @@ public class JavaSem63Itb2024Application {
 				courseRepo.save(c1);
 				courseRepo.save(c2);
 				
-				Grade gr1 = new Grade(st1, c1, 6);
-				Grade gr2 = new Grade(st1, c2, 9);
-				Grade gr3 = new Grade(st2, c1, 10);
+				Grade gr1 = new Grade(st1, c1, 2);
+				Grade gr2 = new Grade(st1, c1, 9);
+				Grade gr3 = new Grade(st1, c2, 2);
+				Grade gr4 = new Grade(st1, c2, 3);
+				Grade gr5 = new Grade(st1, c2, 8);
+				Grade gr6 = new Grade(st2, c1, 2);
+				Grade gr7 = new Grade(st2, c1, 6);
+				Grade gr8 = new Grade(st2, c2, 1);
+				Grade gr9 = new Grade(st2, c2, 3);
+				Grade gr10 = new Grade(st2, c2, 9);
 				grRepo.save(gr1);
 				grRepo.save(gr2);
 				grRepo.save(gr3);
-				
+				grRepo.save(gr4);
+				grRepo.save(gr5);
+				grRepo.save(gr6);
+				grRepo.save(gr7);
+				grRepo.save(gr8);
+				grRepo.save(gr9);
+				grRepo.save(gr10);
 			}
 		};
 	}
